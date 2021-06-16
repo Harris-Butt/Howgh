@@ -35,7 +35,7 @@ def registration_view(request):
 			data['username'] = account.username
 			data['pk'] = account.pk
 		else:
-			data = serializer.errors
+			data = serializer
 		return Response(data)
 
 def validate_email(email):
