@@ -15,12 +15,14 @@ def registration_view(request):
 		if validate_email(email) != None:
 			data['error_message'] = 'That email is already in use.'
 			data['response'] = 'Error'
+			data['error'] = "true"
 			return Response(data)
 
 		username = request.data.get('username', '0')
 		if validate_username(username) != None:
 			data['error_message'] = 'That username is already in use.'
 			data['response'] = 'Error'
+			data['error'] = "true"
 			return Response(data)
 
 		serializer = RegistrationSerializer(data=request.data)
@@ -28,7 +30,7 @@ def registration_view(request):
 		if serializer.is_valid():
 			account = serializer.save()
 			data["error"] = 'false'
-			data['response'] = 'successfully registered new user.'
+			data['success_message'] = 'successfully registered new user.'
 			data['email'] = account.email
 			data['username'] = account.username
 			data['pk'] = account.pk
