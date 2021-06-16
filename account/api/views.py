@@ -19,11 +19,11 @@ def registration_view(request):
 			return Response(data)
 
 		username = request.data.get('username', '0')
-		if validate_username(username) != None:
-			data['error_message'] = 'That username is already in use.'
-			data['response'] = 'Error'
-			data['error'] = "true"
-			return Response(data)
+		# if validate_username(username) != None:
+		# 	data['error_message'] = 'That username is already in use.'
+		# 	data['response'] = 'Error'
+		# 	data['error'] = "true"
+		# 	return Response(data)
 
 		serializer = RegistrationSerializer(data=request.data)
 		
