@@ -40,13 +40,13 @@ def registration_view(request):
 		return Response(data)
 
 def validate_email(email):
-    account = None
-    try:
-        account = Account.objects.get(email=email)
-    except Account.DoesNotExist:
-        return None
-    if account != None:
-        return email
+	account = None
+	try:
+		account = Account.objects.get(email=email)
+	except Account.DoesNotExist:
+		return None
+	if account != None:
+		return email
 
 def validate_username(username):
 	account = None

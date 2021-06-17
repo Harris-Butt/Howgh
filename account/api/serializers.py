@@ -18,7 +18,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 	def	save(self):
 
 		account = Account(
-					email=self.validated_data['email'],
+					email=self.validated_data['email'].lower(),
 					username=self.validated_data['username']
 				)
 		password = self.validated_data['password']
