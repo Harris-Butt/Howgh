@@ -4,11 +4,12 @@ from rest_framework.response import Response
 from account.models import Account
 
 
+
+
 @api_view(['POST', ])
 @permission_classes([])
 @authentication_classes([])
 def registration_view(request):
-
 	if request.method == 'POST':
 		data = {}
 		email = request.data.get('email', '0').lower()
@@ -35,7 +36,7 @@ def registration_view(request):
 			data['username'] = account.username
 			data['pk'] = account.pk
 		else:
-			data = serializer
+			data = serializer.errors
 		return Response(data)
 
 def validate_email(email):
