@@ -93,6 +93,7 @@ def login_view(request):
 
 		if authenticated_email != None and authenticated_password != None:
 			data["success_message"] = "user successfully login"
+			data["email"] = authenticated_email
 			data['error'] = "false"
 			return Response(data)
 		return Response(data)

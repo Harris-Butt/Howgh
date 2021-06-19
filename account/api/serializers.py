@@ -1,6 +1,6 @@
 
+from django.db.models import fields
 from rest_framework import serializers
-
 from account.models import Account
 
 
@@ -25,3 +25,4 @@ class RegistrationSerializer(serializers.ModelSerializer):
 		account.set_password(password)
 		account.save()
 		return account
+
