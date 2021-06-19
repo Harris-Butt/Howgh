@@ -5,6 +5,7 @@ from userProfile.models import Profile
 import base64
 from django.core.files.base import ContentFile
 from  uuid import uuid4
+import json
 @api_view(['POST', ])
 def create(request):
     if request.method == "POST":

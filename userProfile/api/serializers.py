@@ -14,7 +14,7 @@ class ProfileCreationSerializer(serializers.ModelSerializer):
         extra_kwargs = {'user_email': {'required': True}}
 
     def save (self):
-        user = Account.objects.get(email = self.validated_data["user_email"])
+        user = Account.objects.get(email = self.validated_data["user_email"].lower())
         profile = Profile(user=user,
                         user_profession  = self.validated_data["user_profession"],
                         user_phone_number  = self.validated_data["user_phone_number"],
